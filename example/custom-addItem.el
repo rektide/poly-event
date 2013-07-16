@@ -1,14 +1,14 @@
 <element name="x-event-items" constructor="XEventItems">
 <script>
-var XEventItems= Object.create(HTMLElement.prototype)
-XEventItems.prototype.addItem= function(item){
+var XEventItemsProto= Object.create(HTMLElement.prototype)
+XEventItemsProto.addItem= function(item){
 	var event= new CustomEvent("add",{item:item})
 	this.dispatchEvent(event)
 }
-XEventItems.prototype.additionalItemListener= function(fn){
+XEventItemsProto.additionalItemListener= function(fn){
 	this.addEventListener("add",fn)
 }
-XEventItems.prototype.readyCallback = function() {};
-this.register("x-event-item",{prototype:XEventItems})
+XEventItemsProto.readyCallback = function() {};
+var XEventItems= this.register("x-event-item",{prototype:XEventItemsProto})
 </script>
 </element>

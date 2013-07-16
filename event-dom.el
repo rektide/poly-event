@@ -1,7 +1,7 @@
 <element name="x-event" constructor="XEventDom">
 <script>
-var XEventDom= Object.create(HTMLElement.prototype)
-XEventDom.readyCallback = function() {};
-this.register("x-event",{prototype:XEventDom})
+var XEventDomProto= Object.create(HTMLElement.prototype)
+XEventDomProto.readyCallback = function() {};
+var XEventDom= this.register("x-event",{prototype:XEventDomProto})
 </script>
 </element>
